@@ -9,6 +9,8 @@ edit control.launch to use:
      optitrack_sim2.py for simulated position at 100 Hz
      optitrack_sim.py to use optitrack or position from keyboard
 
+0. sudo chmod ugo+rw /dev/ttyUSB0  [could be USB1]
+
 1. To run everything
    roslaunch Turner25 turnertest.launch
 
@@ -31,3 +33,5 @@ edit control.launch to use:
 
 8. Convert .txt to .dat for plotting, and plot using xmgrace
    ./plot-data.batch
+
+
