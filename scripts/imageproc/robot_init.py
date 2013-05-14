@@ -43,7 +43,7 @@ from callbackFunc import xbee_received
 import shared
 # from shared import robot_ready
 
-DEST_ADDR = '\x20\x52'
+DEST_ADDR = '\x21\x02'
 imudata_file_name = 'imudata.txt'
 telemetry = True
 imudata = []
@@ -60,6 +60,8 @@ RESET_ROBOT = False
 #motorgains = [300,0,10,0,50, 300,0,10,0,50]
 # try just left motor
 motorgains = [600,200,400,0,0, 600,200,400,0,0]
+motorgains = [1800,0,400,0,0,\
+              1800,0,400,0,0] #TUNE THESE
 throttle = [0,0]
 duration = [200,200]  # length of run
 cycle = 100 # ms for a leg cycle
@@ -69,7 +71,7 @@ cycle = 100 # ms for a leg cycle
 # [velocity increments]   
 delta = [0x4000,0x4000,0x4000,0x4000]  # adds up to 65536 (2 pi)
 intervals = [50, 50, 50, 50]  # total 200 ms
-vel = [327, 327,327,327]  # = delta/interval
+vel = [0,0,0,0,0,0,0,0]  # = delta/interval
 
 ser = serial.Serial(shared.BS_COMPORT, shared.BS_BAUDRATE,timeout=3, rtscts=0)
 xb = XBee(ser, callback = xbee_received)
@@ -80,22 +82,18 @@ def xb_send(status, type, data):
 
 def resetRobot():
     xb_send(0, command.SOFTWARE_RESET, pack('h',0))
-
-
         
 #set velocity profile
 # invert profile for motor 0 for VelociRoACH kinematics
-def setVelProfile():
+def setVelProfile(vel, turn_rate):
     global intervals, vel
-    print "Sending velocity profile"
-    print "set points [encoder values]", delta
-    print "intervals (ms)",intervals
-    print "velocities (delta per ms)",vel
-    temp0 = intervals + map(invert,delta) + map(invert,vel) # invert 0
-    temp1 = intervals+delta+vel
-    temp = temp0 + temp1  # left = right
-    xb_send(0, command.SET_VEL_PROFILE, pack('24h',*temp))
-    time.sleep(1)
+    print "Sending velocity profile, V, w", vel, turn_rate
+    lVel = 1043*vel + 31.29*turn_rate
+    rVel = 1043*vel - 31.29*turn_rate
+    lVelAr = [int(lVel),int(lVel),int(lVel),int(lVel)]
+    rVelAr = [int(rVel),int(rVel),int(rVel),int(rVel)]
+    temp = lVelAr + rVelAr
+    xb_send(0, command.SET_VEL_PROFILE, pack('8h',*temp))
     
 
 def invert(x):
