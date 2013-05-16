@@ -1,0 +1,10 @@
+<launch>
+ <node name="STARLVision" 
+       pkg="rostopic" 
+       type="rostopic" 
+       args="echo /turner/pose" 
+       launch-prefix="nice -n 10 xterm -bg white -fg black -geometry 64x16+50+200 -title 'STARLVision' -e"
+       >
+ </node>
+
+</launch>

@@ -1,0 +1,69 @@
+<launch>
+  <!-- RosLaunch. keyboard to drive robot
+       		  simulator
+		  rostopic to monitor commands
+		  robot driver node
+         all in top space for simplicity
+   *** Note need to run in xterm, not terminator *** -->
+
+  <!--  dynamic graph of system -->
+  <node pkg="rqt_graph"
+        type="rqt_graph"
+	name="RosGraph" 
+	launch-prefix="nice -n 10"
+	>
+  </node>
+
+  <!-- run in top namespace 
+     keyboard to  (sim3 and rostopic) -->
+
+    <node pkg="Turner25" 
+    	  name="Keyboard" 
+	  type="teleop_keyboard"
+	  launch-prefix="nice -n 10 xterm -bg white -fg black -geometry 64x16+50+200 -title 'Keyboard' -e"
+	  >
+    	<remap from="command_velocity" to="Velocity"/>
+    </node>
+
+    <node pkg="rostopic" name="rostopic_1" type="rostopic" 
+          args="echo /Velocity" 
+	  launch-prefix="nice -n 10 xterm -bg white -fg red -geometry 64x16+100+250 -title 'rostopic_1 Velocity' -e"
+	  >
+    </node>
+    <remap to="/visualTracker/object" from="/turner/pose"/>
+
+    <!--  start with include, so can debug w/o restarting everything -->
+    <include file="$(find Turner25)/launch/sendcommand.launch" />
+    <include file="$(find Turner25)/launch/starlVision.launch" />
+    <include file="$(find Turner25)/launch/control.launch" />
+
+<!-- ******************* unused ******************* -->
+
+<!--
+    <node pkg="Turner25" 
+    	  name="broadcast" 
+	  type="turtle_tf_broadcaster.py"
+	  launch-prefix="nice -n 10"
+	  >
+    	<remap from="TurnTurtle/pose" to="turtle1/pose"/>
+    </node>
+
+
+    <node pkg="turtlesim" name="sim3" 
+    	  type="turtlesim_node"
+	  launch-prefix="nice -n 19"
+	  >
+       <remap from="turtle1/command_velocity" to="Velocity"/>
+    </node>
+
+    <node pkg="rostopic" name="rostopic_2" type="rostopic" 
+          args="echo /turtle1/pose" 
+	  launch-prefix="nice -n 10 xterm -bg white -fg purple -geometry 64x16+150+450 -title 'rostopic_2 turtle1/pose' -e"
+	  >
+    	<remap from="TurnTurtle/pose" to="turtle1/pose"/>
+    </node>
+
+
+-->
+
+</launch>
