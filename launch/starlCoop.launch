@@ -35,6 +35,7 @@
     <!--  start with include, so can debug w/o restarting everything -->
     <include file="$(find Turner25)/launch/sendcommand.launch" />
     <include file="$(find Turner25)/launch/starlVision.launch" />
+    <include file="$(find ros_vrpn_client)/launch/optitrack.launch" />
     <include file="$(find Turner25)/launch/control.launch" />
 
 <!-- ******************* unused ******************* -->

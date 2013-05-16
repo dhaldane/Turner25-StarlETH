@@ -1,0 +1,20 @@
+<launch>
+
+ <node name="DataRecord" 
+       pkg="rosbag" 
+       type="record" 
+	   output="screen"
+       args="-o forward_backwards /usb_cam/image_raw
+	           /visualTracker/target
+	           /visualTracker/object
+	           /Velocity
+	           /velociroach/pose
+	           /starleth/pose
+	           /starlethROS/robot_state/pose
+	           /starlethROS/robot_state/twist
+	           /tf
+	           /ar_pose_marker" 
+       >
+ </node>
+
+</launch>

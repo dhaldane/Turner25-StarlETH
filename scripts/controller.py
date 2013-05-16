@@ -91,7 +91,7 @@ def initialize_target():
     target[2] = 0.0  # orientation should be straight
 
 def getState(msg, type):
-    global state, old_state
+    global state, old_state, target
     old_state = state
     x_est = msg.transform.translation.x
     y_est = msg.transform.translation.y
@@ -104,9 +104,9 @@ def getState(msg, type):
     angles = tf.transformations.euler_from_quaternion(rot)
 #    print 'angles = ', angles
     print 'state: x_est= %8.3f' % x_est,' y_est=%8.3f' % y_est, ' theta=%8.3f' % angles[2]
-    if type = 1:
+    if type == 1:
         state = [x_est, y_est, angles[2]]
-    if type = 0:
+    if type == 0:
         target = [x_est, y_est, angles[2]]
 
 if __name__ == '__main__':

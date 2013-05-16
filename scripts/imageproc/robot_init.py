@@ -86,8 +86,8 @@ def resetRobot():
 # invert profile for motor 0 for VelociRoACH kinematics
 def setVelProfile(vel, turn_rate):
     print "Sending velocity profile, V, w", vel, turn_rate
-    rVel = 1043*vel + 50*turn_rate
-    lVel = 1043*vel - 50*turn_rate
+    rVel = 1043*vel + 80*turn_rate
+    lVel = 1043*vel - 80*turn_rate
     lVelAr = [int(lVel),int(lVel),int(lVel),int(lVel)]
     rVelAr = [int(rVel),int(rVel),int(rVel),int(rVel)]
     temp = lVelAr + rVelAr
