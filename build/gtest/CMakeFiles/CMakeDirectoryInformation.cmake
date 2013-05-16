@@ -3,15 +3,14 @@
 
 # Relative path conversion top directories.
 SET(CMAKE_RELATIVE_PATH_TOP_SOURCE "/usr/src/gtest")
-SET(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build")
+SET(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/duncan/groovy_workspace/Turtle/Turner25/build")
 
 # Force unix paths in dependencies.
 SET(CMAKE_FORCE_UNIX_PATHS 1)
 
 # The C and CXX include file search paths:
 SET(CMAKE_C_INCLUDE_PATH
-  "/home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/include"
-  "/opt/ros/groovy/include"
+  "/home/duncan/groovy_workspace/Turtle/Turner25/include"
   "/usr/src/gtest/include"
   "/usr/src/gtest"
   )

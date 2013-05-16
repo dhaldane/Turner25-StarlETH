@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25
+CMAKE_SOURCE_DIR = /home/duncan/groovy_workspace/Turtle/Turner25
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build
+CMAKE_BINARY_DIR = /home/duncan/groovy_workspace/Turtle/Turner25/build
 
 # Utility rule file for rosbuild_clean-test-results.
 
@@ -43,7 +43,7 @@ CMAKE_BINARY_DIR = /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/buil
 include CMakeFiles/rosbuild_clean-test-results.dir/progress.make
 
 CMakeFiles/rosbuild_clean-test-results:
-	if ! rm -rf /home/ronf/.ros/test_results/Turner25; then echo WARNING:\ failed\ to\ remove\ test-results\ directory ; fi
+	if ! rm -rf /home/duncan/.ros/test_results/Turner25; then echo WARNING:\ failed\ to\ remove\ test-results\ directory ; fi
 
 rosbuild_clean-test-results: CMakeFiles/rosbuild_clean-test-results
 rosbuild_clean-test-results: CMakeFiles/rosbuild_clean-test-results.dir/build.make
@@ -58,6 +58,6 @@ CMakeFiles/rosbuild_clean-test-results.dir/clean:
 .PHONY : CMakeFiles/rosbuild_clean-test-results.dir/clean
 
 CMakeFiles/rosbuild_clean-test-results.dir/depend:
-	cd /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25 /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25 /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build/CMakeFiles/rosbuild_clean-test-results.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/duncan/groovy_workspace/Turtle/Turner25/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/duncan/groovy_workspace/Turtle/Turner25 /home/duncan/groovy_workspace/Turtle/Turner25 /home/duncan/groovy_workspace/Turtle/Turner25/build /home/duncan/groovy_workspace/Turtle/Turner25/build /home/duncan/groovy_workspace/Turtle/Turner25/build/CMakeFiles/rosbuild_clean-test-results.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rosbuild_clean-test-results.dir/depend
 

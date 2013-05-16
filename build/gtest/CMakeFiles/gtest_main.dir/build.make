@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25
+CMAKE_SOURCE_DIR = /home/duncan/groovy_workspace/Turtle/Turner25
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build
+CMAKE_BINARY_DIR = /home/duncan/groovy_workspace/Turtle/Turner25/build
 
 # Include any dependencies generated for this target.
 include gtest/CMakeFiles/gtest_main.dir/depend.make
@@ -48,17 +48,17 @@ include gtest/CMakeFiles/gtest_main.dir/flags.make
 
 gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: gtest/CMakeFiles/gtest_main.dir/flags.make
 gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: /usr/src/gtest/src/gtest_main.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/duncan/groovy_workspace/Turtle/Turner25/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o"
-	cd /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build/gtest && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS)  -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /usr/src/gtest/src/gtest_main.cc
+	cd /home/duncan/groovy_workspace/Turtle/Turner25/build/gtest && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS)  -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /usr/src/gtest/src/gtest_main.cc
 
 gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_main.dir/src/gtest_main.cc.i"
-	cd /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build/gtest && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS)  -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -E /usr/src/gtest/src/gtest_main.cc > CMakeFiles/gtest_main.dir/src/gtest_main.cc.i
+	cd /home/duncan/groovy_workspace/Turtle/Turner25/build/gtest && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS)  -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -E /usr/src/gtest/src/gtest_main.cc > CMakeFiles/gtest_main.dir/src/gtest_main.cc.i
 
 gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_main.dir/src/gtest_main.cc.s"
-	cd /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build/gtest && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS)  -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -S /usr/src/gtest/src/gtest_main.cc -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.s
+	cd /home/duncan/groovy_workspace/Turtle/Turner25/build/gtest && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS)  -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -S /usr/src/gtest/src/gtest_main.cc -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.s
 
 gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.requires:
 .PHONY : gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.requires
@@ -76,25 +76,25 @@ gtest_main_OBJECTS = \
 # External object files for target gtest_main
 gtest_main_EXTERNAL_OBJECTS =
 
-/home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/lib/libgtest_main.so: gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
-/home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/lib/libgtest_main.so: /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/lib/libgtest.so
-/home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/lib/libgtest_main.so: gtest/CMakeFiles/gtest_main.dir/build.make
-/home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/lib/libgtest_main.so: gtest/CMakeFiles/gtest_main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/lib/libgtest_main.so"
-	cd /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build/gtest && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gtest_main.dir/link.txt --verbose=$(VERBOSE)
+/home/duncan/groovy_workspace/Turtle/Turner25/lib/libgtest_main.so: gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+/home/duncan/groovy_workspace/Turtle/Turner25/lib/libgtest_main.so: /home/duncan/groovy_workspace/Turtle/Turner25/lib/libgtest.so
+/home/duncan/groovy_workspace/Turtle/Turner25/lib/libgtest_main.so: gtest/CMakeFiles/gtest_main.dir/build.make
+/home/duncan/groovy_workspace/Turtle/Turner25/lib/libgtest_main.so: gtest/CMakeFiles/gtest_main.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library /home/duncan/groovy_workspace/Turtle/Turner25/lib/libgtest_main.so"
+	cd /home/duncan/groovy_workspace/Turtle/Turner25/build/gtest && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gtest_main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-gtest/CMakeFiles/gtest_main.dir/build: /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/lib/libgtest_main.so
+gtest/CMakeFiles/gtest_main.dir/build: /home/duncan/groovy_workspace/Turtle/Turner25/lib/libgtest_main.so
 .PHONY : gtest/CMakeFiles/gtest_main.dir/build
 
 gtest/CMakeFiles/gtest_main.dir/requires: gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.requires
 .PHONY : gtest/CMakeFiles/gtest_main.dir/requires
 
 gtest/CMakeFiles/gtest_main.dir/clean:
-	cd /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build/gtest && $(CMAKE_COMMAND) -P CMakeFiles/gtest_main.dir/cmake_clean.cmake
+	cd /home/duncan/groovy_workspace/Turtle/Turner25/build/gtest && $(CMAKE_COMMAND) -P CMakeFiles/gtest_main.dir/cmake_clean.cmake
 .PHONY : gtest/CMakeFiles/gtest_main.dir/clean
 
 gtest/CMakeFiles/gtest_main.dir/depend:
-	cd /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25 /usr/src/gtest /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build/gtest /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build/gtest/CMakeFiles/gtest_main.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/duncan/groovy_workspace/Turtle/Turner25/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/duncan/groovy_workspace/Turtle/Turner25 /usr/src/gtest /home/duncan/groovy_workspace/Turtle/Turner25/build /home/duncan/groovy_workspace/Turtle/Turner25/build/gtest /home/duncan/groovy_workspace/Turtle/Turner25/build/gtest/CMakeFiles/gtest_main.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : gtest/CMakeFiles/gtest_main.dir/depend
 

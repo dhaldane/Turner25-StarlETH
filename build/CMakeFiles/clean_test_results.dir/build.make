@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25
+CMAKE_SOURCE_DIR = /home/duncan/groovy_workspace/Turtle/Turner25
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build
+CMAKE_BINARY_DIR = /home/duncan/groovy_workspace/Turtle/Turner25/build
 
 # Utility rule file for clean_test_results.
 
@@ -43,7 +43,7 @@ CMAKE_BINARY_DIR = /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/buil
 include CMakeFiles/clean_test_results.dir/progress.make
 
 CMakeFiles/clean_test_results:
-	/usr/bin/cmake -E remove_directory /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build/test_results
+	/usr/bin/cmake -E remove_directory /home/duncan/groovy_workspace/Turtle/Turner25/build/test_results
 
 clean_test_results: CMakeFiles/clean_test_results
 clean_test_results: CMakeFiles/clean_test_results.dir/build.make
@@ -58,6 +58,6 @@ CMakeFiles/clean_test_results.dir/clean:
 .PHONY : CMakeFiles/clean_test_results.dir/clean
 
 CMakeFiles/clean_test_results.dir/depend:
-	cd /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25 /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25 /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/duncan/groovy_workspace/Turtle/Turner25/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/duncan/groovy_workspace/Turtle/Turner25 /home/duncan/groovy_workspace/Turtle/Turner25 /home/duncan/groovy_workspace/Turtle/Turner25/build /home/duncan/groovy_workspace/Turtle/Turner25/build /home/duncan/groovy_workspace/Turtle/Turner25/build/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/clean_test_results.dir/depend
 

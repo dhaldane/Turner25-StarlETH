@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25
+CMAKE_SOURCE_DIR = /home/duncan/groovy_workspace/Turtle/Turner25
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build
+CMAKE_BINARY_DIR = /home/duncan/groovy_workspace/Turtle/Turner25/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/teleop_keyboard.dir/depend.make
@@ -66,17 +66,17 @@ CMakeFiles/teleop_keyboard.dir/src/teleop_keyboard.cpp.o: /opt/ros/groovy/share/
 CMakeFiles/teleop_keyboard.dir/src/teleop_keyboard.cpp.o: /opt/ros/groovy/share/rosconsole/package.xml
 CMakeFiles/teleop_keyboard.dir/src/teleop_keyboard.cpp.o: /opt/ros/groovy/share/xmlrpcpp/package.xml
 CMakeFiles/teleop_keyboard.dir/src/teleop_keyboard.cpp.o: /opt/ros/groovy/share/roscpp/package.xml
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/duncan/groovy_workspace/Turtle/Turner25/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/teleop_keyboard.dir/src/teleop_keyboard.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/teleop_keyboard.dir/src/teleop_keyboard.cpp.o -c /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/src/teleop_keyboard.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/teleop_keyboard.dir/src/teleop_keyboard.cpp.o -c /home/duncan/groovy_workspace/Turtle/Turner25/src/teleop_keyboard.cpp
 
 CMakeFiles/teleop_keyboard.dir/src/teleop_keyboard.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/teleop_keyboard.dir/src/teleop_keyboard.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/src/teleop_keyboard.cpp > CMakeFiles/teleop_keyboard.dir/src/teleop_keyboard.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/duncan/groovy_workspace/Turtle/Turner25/src/teleop_keyboard.cpp > CMakeFiles/teleop_keyboard.dir/src/teleop_keyboard.cpp.i
 
 CMakeFiles/teleop_keyboard.dir/src/teleop_keyboard.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/teleop_keyboard.dir/src/teleop_keyboard.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/src/teleop_keyboard.cpp -o CMakeFiles/teleop_keyboard.dir/src/teleop_keyboard.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/duncan/groovy_workspace/Turtle/Turner25/src/teleop_keyboard.cpp -o CMakeFiles/teleop_keyboard.dir/src/teleop_keyboard.cpp.s
 
 CMakeFiles/teleop_keyboard.dir/src/teleop_keyboard.cpp.o.requires:
 .PHONY : CMakeFiles/teleop_keyboard.dir/src/teleop_keyboard.cpp.o.requires
@@ -112,6 +112,6 @@ CMakeFiles/teleop_keyboard.dir/clean:
 .PHONY : CMakeFiles/teleop_keyboard.dir/clean
 
 CMakeFiles/teleop_keyboard.dir/depend:
-	cd /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25 /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25 /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build /home/ronf/Research/ros/groovy_workspace/Turtle/Turner25/build/CMakeFiles/teleop_keyboard.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/duncan/groovy_workspace/Turtle/Turner25/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/duncan/groovy_workspace/Turtle/Turner25 /home/duncan/groovy_workspace/Turtle/Turner25 /home/duncan/groovy_workspace/Turtle/Turner25/build /home/duncan/groovy_workspace/Turtle/Turner25/build /home/duncan/groovy_workspace/Turtle/Turner25/build/CMakeFiles/teleop_keyboard.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/teleop_keyboard.dir/depend
 

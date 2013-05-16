@@ -148,31 +148,29 @@ class RunRobot:
     # initial calculation assuming no slip - times in milliseconds
     def run(self):
         while True:
+
             vel = self.linear_command
             turn_rate = self.angular_command
-            leftTime = int(4*cycle * (vel - turn_rate/2) / LEG_VELOCITY)
-            rightTime = int(4 * cycle * (vel + turn_rate/2) / LEG_VELOCITY)
-
-        # probably should normalize, but can at least bound leg run time
-            leftTime=max(0,leftTime)
-            leftTime=min(4*cycle,leftTime)
-            rightTime=max(0,rightTime)
-            rightTime=min(4*cycle,rightTime)
-
-            print 'setting run time left=%d  right=%d' %(leftTime, rightTime)
+            setVelProfile(vel,turn_rate)
             currentTime = time.time()   # time in seconds, floating point
-            endTime = currentTime + (4.0*cycle)/1000.0 # 4 stride motion segments
-            if currentTime < self.runtime: 
-                self.setThrustClosedLoop(leftTime, rightTime)
-    # get telemetry data while closed loop is running
-    # can't trust robot time - need to have python timer as well
-    #    print 'currentTime = %f, endTime = %f' %(currentTime, endTime)
-            while(currentTime < endTime):
-    #       time.sleep(0.1) # sample data every 0.1 sec
-                self.getPIDdata()  # delay is in getPIDdata()
-                self.data = shared.imudata[0]
-                currentTime = time.time()  # time in milliseconds
-#                print 'index =', self.data[0],'currentTime=',self.data[1]/1000
+            # endTime = currentTime + (4.0*cycle)/1000.0 # 4 stride motion segments
+            time.sleep(0.1)
+            if currentTime > self.runtime: 
+                xb_send(0,command.PIDStopMotors,"Stop Motors")
+            else:
+                xb_send(0,command.PIDStartMotors,"Start Motors")
+            time.sleep(0.1)
+
+
+#     # get telemetry data while closed loop is running
+#     # can't trust robot time - need to have python timer as well
+#     #    print 'currentTime = %f, endTime = %f' %(currentTime, endTime)
+#             while(currentTime < endTime):
+#     #       time.sleep(0.1) # sample data every 0.1 sec
+#                 self.getPIDdata()  # delay is in getPIDdata()
+#                 self.data = shared.imudata[0]
+#                 currentTime = time.time()  # time in milliseconds
+# #                print 'index =', self.data[0],'currentTime=',self.data[1]/1000
        
 
 

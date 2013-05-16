@@ -45,19 +45,22 @@ state_initialized = False
 target = [0,0,0] # desired position for robot
 state = [0, 0, 0]
 old_state = [0,0,0]
-kpx = 15.0   # should be m/s per meter longitudinal error
-kpy = 1.0   # should be rad/sec turn per meter lateral error
-kd = 0.5  # should be rad/sec turn per rad orientation error
+kpx = 1   # should be m/s per meter longitudinal error
+kpy = 3.0   # should be rad/sec turn per meter lateral error
+kd = 3  # should be rad/sec turn per rad orientation error
 ref = [0,0,0] # reference position to track, default to origin
 MAX_VEL = 2.0 # m/s
-MAX_TURN = 3.0 # rad/sec
+MAX_TURN = 6.0 # rad/sec
 # need Pose and TransformStamped
 
+def handle_target_pose(msg, robotname):
+    getState(msg, 0)
+    
 def handle_turner_pose(msg, robotname):
     global state_initialized
 #    robotname = 'roach'
 #    print "msg=", msg
-    getState(msg)
+    getState(msg, 1)
     if state_initialized == False:
         initialize_target()
         state_initialized = True
@@ -75,6 +78,9 @@ def handle_turner_pose(msg, robotname):
     vel = max(-MAX_VEL, vel)
     turn_rate = min(MAX_TURN, turn_rate)
     turn_rate = max(-MAX_TURN,turn_rate)
+# Handle case of robot facing backwards
+    if vel > 0 and abs(target[2] - theta) > 1.75:
+        vel = 0
     print 'cmd speed m/s %6.2f' % vel, ' cmd turn rad/sec = %6.2f' % turn_rate
     pub.publish(turtlesim.msg.Velocity(vel,turn_rate))
 
@@ -84,7 +90,7 @@ def initialize_target():
     target[1] = state[1] # y_o
     target[2] = 0.0  # orientation should be straight
 
-def getState(msg):
+def getState(msg, type):
     global state, old_state
     old_state = state
     x_est = msg.transform.translation.x
@@ -98,17 +104,23 @@ def getState(msg):
     angles = tf.transformations.euler_from_quaternion(rot)
 #    print 'angles = ', angles
     print 'state: x_est= %8.3f' % x_est,' y_est=%8.3f' % y_est, ' theta=%8.3f' % angles[2]
-    state = [x_est, y_est, angles[2]]
-
+    if type = 1:
+        state = [x_est, y_est, angles[2]]
+    if type = 0:
+        target = [x_est, y_est, angles[2]]
 
 if __name__ == '__main__':
     rospy.init_node('Control')
 # add default value
     state_initialized = False
-    robotname = 'VelociRoACH1'
-    rospy.Subscriber('/optitrack/pose',
+    robotname = 'turner'
+    rospy.Subscriber('/turner/pose',
                      geometry_msgs.msg.TransformStamped,
                      handle_turner_pose, robotname,
                      1)  # queue size 1
+    rospy.Subscriber('/visualTracker/target',
+                     geometry_msgs.msg.TransformStamped,
+                     handle_target_pose, robotname,
+                     1)
     pub= rospy.Publisher('velCMD', turtlesim.msg.Velocity)
     rospy.spin()

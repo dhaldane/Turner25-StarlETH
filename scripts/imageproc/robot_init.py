@@ -43,7 +43,7 @@ from callbackFunc import xbee_received
 import shared
 # from shared import robot_ready
 
-DEST_ADDR = '\x21\x02'
+DEST_ADDR = '\x20\x52'
 imudata_file_name = 'imudata.txt'
 telemetry = True
 imudata = []
@@ -71,7 +71,6 @@ cycle = 100 # ms for a leg cycle
 # [velocity increments]   
 delta = [0x4000,0x4000,0x4000,0x4000]  # adds up to 65536 (2 pi)
 intervals = [50, 50, 50, 50]  # total 200 ms
-vel = [0,0,0,0,0,0,0,0]  # = delta/interval
 
 ser = serial.Serial(shared.BS_COMPORT, shared.BS_BAUDRATE,timeout=3, rtscts=0)
 xb = XBee(ser, callback = xbee_received)
@@ -86,15 +85,14 @@ def resetRobot():
 #set velocity profile
 # invert profile for motor 0 for VelociRoACH kinematics
 def setVelProfile(vel, turn_rate):
-    global intervals, vel
     print "Sending velocity profile, V, w", vel, turn_rate
-    lVel = 1043*vel + 31.29*turn_rate
-    rVel = 1043*vel - 31.29*turn_rate
+    rVel = 1043*vel + 50*turn_rate
+    lVel = 1043*vel - 50*turn_rate
     lVelAr = [int(lVel),int(lVel),int(lVel),int(lVel)]
     rVelAr = [int(rVel),int(rVel),int(rVel),int(rVel)]
     temp = lVelAr + rVelAr
+    print temp
     xb_send(0, command.SET_VEL_PROFILE, pack('8h',*temp))
-    
 
 def invert(x):
     return (-x)
@@ -102,24 +100,23 @@ def invert(x):
 # set robot control gains
 def setGain():
     count = 0
-    while not(shared.motor_gains_set):
-        print "Setting motor gains. Packet:",count
-        count = count + 1
-        xb_send(0, command.SET_PID_GAINS, pack('10h',*motorgains))
-        time.sleep(2)
-        if count > 20:
-            print "count exceeded. Exit."
-            print "Halting xb"
-            xb.halt()
-            print "Closing serial"
-            ser.close()
-            print "Exiting..."
-            sys.exit(0)
-
-
-            
-
-
+    # while not(shared.motor_gains_set):
+    print "Setting motor gains. Packet:",count
+    count = count + 1
+    xb_send(0, command.SET_PID_GAINS, pack('10h',*motorgains))
+    time.sleep(.5)
+    xb_send(0, command.SET_PID_GAINS, pack('10h',*motorgains))
+    time.sleep(.5)    
+    xb_send(0, command.SET_PID_GAINS, pack('10h',*motorgains))
+    time.sleep(.5)
+    if count > 20:
+        print "count exceeded. Exit."
+        print "Halting xb"
+        xb.halt()
+        print "Closing serial"
+        ser.close()
+        print "Exiting..."
+        sys.exit(0)      
 
 def robot_init():
     print 'keyboard_telem for IP2.5c Jan. 2013\n'
@@ -135,16 +132,17 @@ def robot_init():
     if ser.isOpen():
         print "Serial open. Using port",shared.BS_COMPORT
   
-    xb_send(0, command.WHO_AM_I, "Robot Echo")
+    # xb_send(0, command.WHO_AM_I, "Robot Echo")
     setGain()
     time.sleep(0.5)  # wait for whoami before sending next command
-    setVelProfile()
-    throttle = [0,0]
-    tinc = 25;
+    setVelProfile(0,0)
+    # throttle = [0,0]
+    # tinc = 25;
     # time in milliseconds
     # duration = 5*100 -1  # integer multiple of time steps
-    xb_send(0, command.ZERO_POS,  "Zero motor")
-    print 'read motorpos and zero'
+    # xb_send(0, command.ZERO_POS,  "Zero motor")
+    # print 'read motorpos and zero'
+    # xb_send(0,command.PIDStartMotors, "Start pid")
     print "Done Initializing"
     shared.robot_ready = True
     return True
